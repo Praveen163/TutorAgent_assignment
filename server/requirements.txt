@@ -1,4 +1,7 @@
-flask
-flask-cors 
+openai
+openai-agents
 agents
+python-dotenv
 dotenv
+flask
+flask-cors
