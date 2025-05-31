@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import asyncio
 from src.app import tutor_managerr
+import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 app = Flask(__name__)
 CORS(app)
@@ -29,4 +33,6 @@ def serve_check():
     return jsonify({'status': 'ok'})
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 10000))  # Default to 10000 as per Render docs
+    app.run(host="0.0.0.0", port=port)
     app.run(debug=True) 
